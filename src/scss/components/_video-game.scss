@@ -1,0 +1,48 @@
+// Estilos para Cronología de Implementación (Estilo Tarjetas)
+.card {
+  &.shadow {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  &.rounded-4 {
+    border-radius: 1rem;
+  }
+
+  .card-body {
+    padding: 2rem;
+
+    .row {
+      .col {
+        &.bg-light {
+          background-color: #f8f9fa;
+          padding: 1rem;
+          border-radius: 0.5rem;
+          box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .text-secondary {
+          color: #6c757d; // Gris moderno para fecha y texto
+        }
+
+        .fw-bolder {
+          font-weight: 600;
+        }
+
+        .small {
+          &.text-muted {
+            color: #adb5bd;
+            display: block; // Asegura que sean líneas separadas
+          }
+        }
+      }
+
+      .col-lg-8 {
+        p {
+          font-size: 1rem;
+          color: #3b3b3b; // Gris oscuro para mejor contraste
+          line-height: 1.6;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,345 @@
+doctype html
+html(lang='en')
+
+    head
+
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        meta(name='description', content='')
+        meta(name='author', content='')
+
+        title HCI
+
+        // Favicon
+        link(rel='icon', type='image/x-icon', href='assets/favicon.ico')
+
+        include includes/css.pug
+
+    body.d-flex.flex-column.h-100
+
+        main.flex-shrink-0
+
+            // Navigation
+            include includes/navbar.pug
+
+            // Projects Section
+            section.py-4.py-md-5
+                .container
+                    .text-center.mb-4.mb-md-5
+                        h1.display-5.display-md-4.fw-bold.mb-3.mb-md-4
+                            span.text-primary Proyecto HCI
+                        p.lead.text-muted Aplicación de principios de usabilidad en realidad virtual
+                    
+                    .row.justify-content-center
+                        .col-12.col-lg-10.col-xl-8
+                            .card.border-0.shadow-sm
+                                .card-body.p-3.p-md-5
+                                    .text-center.mb-3.mb-md-4
+                                        i.fas.fa-vr-cardboard.fa-3x.fa-md-4x.text-primary.mb-2.mb-md-3
+                                        h2.fw-bold.h4.h-md-3 VR Escape Room Adventure
+                                        p.lead.text-muted.small
+                                            | Aplicación de principios de HCI en un videojuego inmersivo de escape room desarrollado en Unity para dispositivos de Realidad Virtual
+                                    
+                                    .row.g-3.g-md-4.mb-3.mb-md-4
+                                        .col-12.col-md-6
+                                            .card.border-0.bg-light.h-100
+                                                .card-body.p-3.p-md-4
+                                                    h6.h5.fw-bold.text-primary.mb-2.mb-md-3
+                                                        i.fas.fa-cogs.me-1.me-md-2
+                                                        | Tecnologías HCI
+                                                    ul.list-unstyled.mb-0.small
+                                                        li.mb-1.mb-md-2
+                                                            i.fab.fa-unity.text-primary.me-1.me-md-2
+                                                            | Unity 3D Engine
+                                                        li.mb-1.mb-md-2
+                                                            i.fas.fa-vr-cardboard.text-primary.me-1.me-md-2
+                                                            | Oculus Rift/Quest
+                                                        li.mb-1.mb-md-2
+                                                            i.fas.fa-code.text-primary.me-1.me-md-2
+                                                            | C# Scripting
+                                                        li.mb-1.mb-md-2
+                                                            i.fas.fa-cube.text-primary.me-1.me-md-2
+                                                            | 3D Modeling & Animation
+                                        
+                                        .col-12.col-md-6
+                                            .card.border-0.bg-light.h-100
+                                                .card-body.p-3.p-md-4
+                                                    h6.h5.fw-bold.text-success.mb-2.mb-md-3
+                                                        i.fas.fa-user-friends.me-1.me-md-2
+                                                        | Principios de Usabilidad
+                                                    ul.list-unstyled.mb-0.small
+                                                        li.mb-1.mb-md-2
+                                                            i.fas.fa-puzzle-piece.text-success.me-1.me-md-2
+                                                            | Interacción Intuitiva
+                                                        li.mb-1.mb-md-2
+                                                            i.fas.fa-eye.text-success.me-1.me-md-2
+                                                            | Feedback Visual
+                                                        li.mb-1.mb-md-2
+                                                            i.fas.fa-hand-paper.text-success.me-1.me-md-2
+                                                            | Controles Naturales
+                                                        li.mb-1.mb-md-2
+                                                            i.fas.fa-users.text-success.me-1.me-md-2
+                                                            | Accesibilidad
+                                    
+                                    .text-center
+                                        a.btn.btn-primary.btn-lg.px-3.px-md-4.py-2.py-md-3.fw-bold(href="video-game.html")
+                                            i.fas.fa-play.me-1.me-md-2
+                                            | Ver Proyecto Completo
+
+            // Results Section
+            section.py-4.py-md-5.bg-light
+                .container
+                    .text-center.mb-4.mb-md-5
+                        h2.section-heading.text-uppercase.fw-bold.h4.h-md-3 Resultados del Proyecto
+                        h3.section-subheading.text-muted.small Métricas de usabilidad y impacto en HCI
+                    
+                    .row.g-3.g-md-4
+                        .col-12.col-md-6.col-lg-3
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.p-3.p-md-4.text-center
+                                    i.fas.fa-chart-line.fa-2x.fa-md-3x.text-success.mb-2.mb-md-3
+                                    h6.h5.fw-bold.text-success 95%
+                                    p.small.text-muted.mb-0
+                                        | Tasa de completación de tareas
+                        
+                        .col-12.col-md-6.col-lg-3
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.p-3.p-md-4.text-center
+                                    i.fas.fa-clock.fa-2x.fa-md-3x.text-primary.mb-2.mb-md-3
+                                    h6.h5.fw-bold.text-primary 2.3s
+                                    p.small.text-muted.mb-0
+                                        | Tiempo promedio de respuesta
+                        
+                        .col-12.col-md-6.col-lg-3
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.p-3.p-md-4.text-center
+                                    i.fas.fa-smile.fa-2x.fa-md-3x.text-warning.mb-2.mb-md-3
+                                    h6.h5.fw-bold.text-warning 4.8/5
+                                    p.small.text-muted.mb-0
+                                        | Satisfacción del usuario
+                        
+                        .col-12.col-md-6.col-lg-3
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.p-3.p-md-4.text-center
+                                    i.fas.fa-users.fa-2x.fa-md-3x.text-info.mb-2.mb-md-3
+                                    h6.h5.fw-bold.text-info 150+
+                                    p.small.text-muted.mb-0
+                                        | Usuarios evaluados
+
+            // Impact Section
+            section.py-4.py-md-5
+                .container
+                    .text-center.mb-4.mb-md-5
+                        h2.section-heading.text-uppercase.fw-bold.h4.h-md-3 Impacto en HCI
+                        h3.section-subheading.text-muted.small Contribuciones al campo de Interacción Humano-Computador
+                    
+                    .row.g-3.g-md-4
+                        .col-12.col-md-4
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.p-3.p-md-4.text-center
+                                    i.fas.fa-lightbulb.fa-2x.fa-md-3x.text-primary.mb-2.mb-md-3
+                                    h6.h5.fw-bold Innovación
+                                    p.small.text-muted.mb-0
+                                        | Nuevas metodologías de evaluación en entornos VR
+                        
+                        .col-12.col-md-4
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.p-3.p-md-4.text-center
+                                    i.fas.fa-graduation-cap.fa-2x.fa-md-3x.text-success.mb-2.mb-md-3
+                                    h6.h5.fw-bold Educación
+                                    p.small.text-muted.mb-0
+                                        | Caso de estudio para cursos de HCI
+                        
+                        .col-12.col-md-4
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.p-3.p-md-4.text-center
+                                    i.fas.fa-globe.fa-2x.fa-md-3x.text-info.mb-2.mb-md-3
+                                    h6.h5.fw-bold Accesibilidad
+                                    p.small.text-muted.mb-0
+                                        | Diseño inclusivo para usuarios con diferentes capacidades
+
+            // Development Process Section
+            section.py-4.py-md-5.bg-light
+                .container
+                    .text-center.mb-4.mb-md-5
+                        h2.section-heading.text-uppercase.fw-bold.h4.h-md-3 Proceso de Desarrollo
+                        h3.section-subheading.text-muted.small Metodología HCI aplicada al proyecto VR
+                    
+                    .row.g-3.g-md-4
+                        .col-12.col-md-6.col-lg-3
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.p-3.p-md-4.text-center
+                                    .badge.bg-primary.rounded-pill.mb-3.px-3.py-2 1
+                                    i.fas.fa-search.fa-2x.fa-md-3x.text-primary.mb-2.mb-md-3
+                                    h6.h5.fw-bold Investigación
+                                    p.small.text-muted.mb-0
+                                        | Análisis de usuarios VR, entrevistas y observación de comportamientos en entornos inmersivos
+                        
+                        .col-12.col-md-6.col-lg-3
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.p-3.p-md-4.text-center
+                                    .badge.bg-primary.rounded-pill.mb-3.px-3.py-2 2
+                                    i.fas.fa-pencil-ruler.fa-2x.fa-md-3x.text-primary.mb-2.mb-md-3
+                                    h6.h5.fw-bold Prototipado
+                                    p.small.text-muted.mb-0
+                                        | Creación de wireframes 3D, storyboards de interacción y prototipos de baja fidelidad
+                        
+                        .col-12.col-md-6.col-lg-3
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.p-3.p-md-4.text-center
+                                    .badge.bg-primary.rounded-pill.mb-3.px-3.py-2 3
+                                    i.fas.fa-cogs.fa-2x.fa-md-3x.text-primary.mb-2.mb-md-3
+                                    h6.h5.fw-bold Desarrollo
+                                    p.small.text-muted.mb-0
+                                        | Implementación en Unity con focus en usabilidad, accesibilidad y feedback natural
+                        
+                        .col-12.col-md-6.col-lg-3
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.p-3.p-md-4.text-center
+                                    .badge.bg-primary.rounded-pill.mb-3.px-3.py-2 4
+                                    i.fas.fa-chart-line.fa-2x.fa-md-3x.text-primary.mb-2.mb-md-3
+                                    h6.h5.fw-bold Evaluación
+                                    p.small.text-muted.mb-0
+                                        | Testing de usabilidad con usuarios reales, métricas de rendimiento y refinamiento iterativo
+
+            // Technical Implementation Section
+            section.py-4.py-md-5
+                .container
+                    .text-center.mb-4.mb-md-5
+                        h2.section-heading.text-uppercase.fw-bold.h4.h-md-3 Implementación Técnica
+                        h3.section-subheading.text-muted.small Detalles técnicos y decisiones de diseño
+                    
+                    .row.g-3.g-md-4
+                        .col-12.col-md-6
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.p-3.p-md-4
+                                    .d-flex.align-items-center.mb-3
+                                        i.fas.fa-code.fa-2x.text-primary.me-3
+                                        h6.h5.fw-bold.mb-0 Arquitectura del Sistema
+                                    p.small.text-muted.mb-0
+                                        | Implementación modular con separación de lógica de negocio, interacción VR y gestión de estado para facilitar mantenimiento y escalabilidad
+                        
+                        .col-12.col-md-6
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.p-3.p-md-4
+                                    .d-flex.align-items-center.mb-3
+                                        i.fas.fa-hand-paper.fa-2x.text-success.me-3
+                                        h6.h5.fw-bold.mb-0 Interacción Natural
+                                    p.small.text-muted.mb-0
+                                        | Sistema de detección de gestos que mapea movimientos naturales del usuario a acciones del juego, reduciendo la curva de aprendizaje
+                        
+                        .col-12.col-md-6
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.p-3.p-md-4
+                                    .d-flex.align-items-center.mb-3
+                                        i.fas.fa-eye.fa-2x.text-info.me-3
+                                        h6.h5.fw-bold.mb-0 Feedback Visual
+                                    p.small.text-muted.mb-0
+                                        | Sistema de partículas y efectos visuales que proporcionan retroalimentación inmediata sobre las acciones del usuario
+                        
+                        .col-12.col-md-6
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.p-3.p-md-4
+                                    .d-flex.align-items-center.mb-3
+                                        i.fas.fa-universal-access.fa-2x.text-warning.me-3
+                                        h6.h5.fw-bold.mb-0 Accesibilidad
+                                    p.small.text-muted.mb-0
+                                        | Implementación de opciones de configuración para usuarios con diferentes capacidades motoras y visuales
+
+            // Challenges and Solutions Section
+            section.py-4.py-md-5.bg-light
+                .container
+                    .text-center.mb-4.mb-md-5
+                        h2.section-heading.text-uppercase.fw-bold.h4.h-md-3 Desafíos y Soluciones
+                        h3.section-subheading.text-muted.small Problemas encontrados y cómo los resolvimos
+                    
+                    .row.g-3.g-md-4
+                        .col-12.col-md-4
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.p-3.p-md-4
+                                    .text-center.mb-3
+                                        i.fas.fa-exclamation-triangle.fa-2x.fa-md-3x.text-warning.mb-2.mb-md-3
+                                        h6.h5.fw-bold.text-warning Desafío: Náuseas VR
+                                    p.small.text-muted.mb-0
+                                        | Usuarios reportaban mareos durante sesiones prolongadas
+                                    
+                                    .mt-3
+                                        i.fas.fa-lightbulb.fa-1x.text-success.me-2
+                                        strong.text-success Solución:
+                                        p.small.text-muted.mb-0.mt-1
+                                            | Implementamos sistema de teleportación suave y opciones de movimiento adaptativo
+                        
+                        .col-12.col-md-4
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.p-3.p-md-4
+                                    .text-center.mb-3
+                                        i.fas.fa-exclamation-triangle.fa-2x.fa-md-3x.text-warning.mb-2.mb-md-3
+                                        h6.h5.fw-bold.text-warning Desafío: Curva de Aprendizaje
+                                    p.small.text-muted.mb-0
+                                        | Usuarios tenían dificultades para entender los controles VR
+                                    
+                                    .mt-3
+                                        i.fas.fa-lightbulb.fa-1x.text-success.me-2
+                                        strong.text-success Solución:
+                                        p.small.text-muted.mb-0.mt-1
+                                            | Creamos tutorial interactivo progresivo con feedback inmediato
+                        
+                        .col-12.col-md-4
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.p-3.p-md-4
+                                    .text-center.mb-3
+                                        i.fas.fa-exclamation-triangle.fa-2x.fa-md-3x.text-warning.mb-2.mb-md-3
+                                        h6.h5.fw-bold.text-warning Desafío: Rendimiento
+                                    p.small.text-muted.mb-0
+                                        | El juego tenía problemas de frame rate en dispositivos menos potentes
+                                    
+                                    .mt-3
+                                        i.fas.fa-lightbulb.fa-1x.text-success.me-2
+                                        strong.text-success Solución:
+                                        p.small.text-muted.mb-0.mt-1
+                                            | Optimización de assets, LOD dinámico y configuración automática de calidad
+
+            // Future Improvements Section
+            section.py-4.py-md-5
+                .container
+                    .text-center.mb-4.mb-md-5
+                        h2.section-heading.text-uppercase.fw-bold.h4.h-md-3 Próximos Pasos
+                        h3.section-subheading.text-muted.small Mejoras futuras y evolución del proyecto
+                    
+                    .row.g-3.g-md-4
+                        .col-12.col-md-6.col-lg-3
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.p-3.p-md-4.text-center
+                                    i.fas.fa-users.fa-2x.fa-md-3x.text-primary.mb-2.mb-md-3
+                                    h6.h5.fw-bold Multijugador
+                                    p.small.text-muted.mb-0
+                                        | Implementación de modo colaborativo para experiencias compartidas
+                        
+                        .col-12.col-md-6.col-lg-3
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.p-3.p-md-4.text-center
+                                    i.fas.fa-brain.fa-2x.fa-md-3x.text-success.mb-2.mb-md-3
+                                    h6.h5.fw-bold IA Adaptativa
+                                    p.small.text-muted.mb-0
+                                        | Sistema de inteligencia artificial que se adapta al nivel de habilidad del usuario
+                        
+                        .col-12.col-md-6.col-lg-3
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.p-3.p-md-4.text-center
+                                    i.fas.fa-globe.fa-2x.fa-md-3x.text-info.mb-2.mb-md-3
+                                    h6.h5.fw-bold Accesibilidad Global
+                                    p.small.text-muted.mb-0
+                                        | Soporte para múltiples idiomas y adaptación cultural
+                        
+                        .col-12.col-md-6.col-lg-3
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.p-3.p-md-4.text-center
+                                    i.fas.fa-chart-bar.fa-2x.fa-md-3x.text-warning.mb-2.mb-md-3
+                                    h6.h5.fw-bold Analytics Avanzados
+                                    p.small.text-muted.mb-0
+                                        | Sistema de métricas detalladas para análisis de comportamiento de usuario
+
+
+        // Footer
+        include includes/footer.pug
+        include includes/scripts.pug

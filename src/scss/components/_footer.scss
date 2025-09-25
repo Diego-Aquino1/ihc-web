@@ -1,0 +1,35 @@
+footer {
+    background-color: #f8f9fa; // Fondo claro
+    padding: 2.5rem 0;
+
+    h5, h6 {
+        color: #6a11cb; // Color púrpura para títulos
+    }
+
+    p {
+        font-size: 0.9rem;
+        color: #6c757d;
+    }
+
+    a.text-decoration-none {
+        color: #6c757d;
+        &:hover {
+            color: #6a11cb; // Efecto hover púrpura
+            text-decoration: underline;
+        }
+    }
+
+    i.fab {
+        transition: transform 0.3s ease-in-out;
+        color: #6a11cb; // Color para íconos
+        &:hover {
+            transform: scale(1.2); // Efecto zoom
+            color: #2575fc; // Azul más vibrante
+        }
+    }
+
+    hr {
+        border-top: 1px solid #dee2e6;
+        margin: 2rem 0;
+    }
+}

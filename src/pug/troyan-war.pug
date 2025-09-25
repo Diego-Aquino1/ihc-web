@@ -1,0 +1,214 @@
+extends layout
+
+block content
+    .container.py-5
+        // Logo del juego
+        .text-center.mb-5
+            img(src='/assets/images/troya/logo_troya.png', alt='Proyecto 1: Simulación de IA', style='margin-bottom: 1cm; width: 300px;')
+
+        // Título principal
+        h2.text-center.fw-bold.mb-4.text-gradient Troya: El camino de Aquiles
+
+        p.text-muted.mb-5.text-description
+            | Este proyecto de realidad virtual se presenta como una solución innovadora para el aprendizaje histórico, dirigida a estudiantes que buscan experimentar la Guerra de Troya de una manera inmersiva y significativa. A través de la tecnología VR, se ofrece una experiencia educativa que trasciende los métodos convencionales, permitiendo a los usuarios sumergirse en un mundo antiguo, revivir los eventos cruciales del conflicto, y comprender las emociones, decisiones y valores de sus protagonistas desde una perspectiva completamente nueva. Este enfoque busca conectar a los usuarios con el pasado, haciéndolo relevante y accesible, mientras fomenta la empatía y el respeto por las civilizaciones que definieron la historia humana.
+
+        // Sección de experiencia
+        .container.px-5.my-5
+            .text-center.mb-5
+                h1.display-5.fw-bolder.mb-0
+                    span.text-gradient.d-inline 
+            .row.gx-5.justify-content-center
+
+                .col-lg-11.col-xl-9.col-xxl-8
+
+                    // Experience Section
+                    section
+                        .d-flex.align-items-center.justify-content-between.mb-4
+                            h2.text-primary.fw-bolder.mb-0 Documentos 
+
+                        // Card: Propuesta del Proyecto Final
+                        .card.shadow.border-0.rounded-4.mb-5
+                            .card-body.p-5
+                                .row.align-items-center.gx-5
+                                    .col.text-center.text-lg-start.mb-4.mb-lg-0
+                                        .bg-light.p-4.rounded-4
+                                            .text-primary.fw-bolder.mb-2 Proyecto Final: Propuesta
+                                            .small.fw-bolder Troya: El Camino de Aquiles
+                                            .small.text-muted Última actualización: Diciembre 2024
+                                    .col-lg-8
+                                        p.text-muted
+                                            | Este documento contiene todos los detalles y la propuesta formal del proyecto final "Troya: El Camino de Aquiles". Incluye el objetivo del proyecto, la justificación, y los elementos clave que destacan el valor educativo y tecnológico de esta simulación en realidad virtual.
+                                        // Botón para redireccionar al PDF
+                                        .mt-4
+                                            a.btn.btn-primary(href="/assets/docs/propuesta.pdf" target="_blank")
+                                                i.bi.bi-file-earmark-pdf.me-2
+                                                | Ver Propuesta
+
+
+                        // Card: Detalle de Necesidades
+                        .card.shadow.border-0.rounded-4.mb-5
+                            .card-body.p-5
+                                .row.align-items-center.gx-5
+                                    .col.text-center.text-lg-start.mb-4.mb-lg-0
+                                        .bg-light.p-4.rounded-4
+                                            .text-primary.fw-bolder.mb-2 Detalles del Proyecto
+                                            .small.fw-bolder Troya: El Camino de Aquiles
+                                            .small.text-muted Última actualización: Diciembre 2024
+                                    .col-lg-8
+                                        p.text-muted
+                                            | Este documento contiene una descripción detallada de las necesidades y actividades clave del proyecto "Troya: El Camino de Aquiles". En él se destacan los aspectos fundamentales, como la narrativa histórica, la experiencia del usuario y los elementos técnicos requeridos para su implementación.
+                                        // Botón para redireccionar al PDF
+                                        .mt-4
+                                            a.btn.btn-primary(href="/assets/docs/detalles_necesidades.pdf" target="_blank")
+                                                i.bi.bi-file-earmark-pdf.me-2
+                                                | Ver Detalles
+
+
+                        // Card: Evidencias de Entrevistas
+                        .card.shadow.border-0.rounded-4.mb-5
+                            .card-body.p-5
+                                .row.align-items-center.gx-5
+                                    .col.text-center.text-lg-start.mb-4.mb-lg-0
+                                        .bg-light.p-4.rounded-4
+                                            .text-primary.fw-bolder.mb-2 Evidencias de Entrevistas
+                                            .small.fw-bolder Troya: El Camino de Aquiles
+                                            .small.text-muted Última actualización: Diciembre 2024
+                                    .col-lg-8
+                                        p.text-muted
+                                            | Este documento contiene las evidencias recopiladas durante las entrevistas con usuarios, incluyendo cuestionarios realizados en hoja y papel. Presenta los hallazgos clave que fundamentan el diseño del proyecto y reflejan las necesidades y expectativas de los participantes.
+                                        // Botón para redireccionar al PDF
+                                        .mt-4
+                                            a.btn.btn-primary(href="/assets/docs/entrevista.pdf" target="_blank")
+                                                i.bi.bi-file-earmark-pdf.me-2
+                                                | Ver Evidencias
+
+                        // Card: Observaciones y Entrevistas
+                        .card.shadow.border-0.rounded-4.mb-5
+                            .card-body.p-5
+                                .row.align-items-center.gx-5
+                                    .col.text-center.text-lg-start.mb-4.mb-lg-0
+                                        .bg-light.p-4.rounded-4
+                                            .text-primary.fw-bolder.mb-2 Needfinding
+                                            .small.fw-bolder Troya: El Camino de Aquiles
+                                            .small.text-muted Última actualización: Diciembre 2024
+                                    .col-lg-8
+                                        p.text-muted
+                                            | Este documento detalla las observaciones y entrevistas realizadas con estudiantes de Historia. Contiene sus perspectivas y necesidades respecto a la enseñanza tradicional de la Guerra de Troya, destacando la importancia de las emociones y dilemas morales en su aprendizaje.
+
+                                        // Botón para redireccionar al PDF
+                                        .mt-4
+                                            a.btn.btn-primary(href="/assets/docs/needfinding.pdf" target="_blank")
+                                                i.bi.bi-file-earmark-pdf.me-2
+                                                | Ver Documento
+
+
+
+                        // Card: Prototipo de Personas
+                        .card.shadow.border-0.rounded-4.mb-5
+                            .card-body.p-5
+                                .row.align-items-center.gx-5
+                                    .col.text-center.text-lg-start.mb-4.mb-lg-0
+                                        .bg-light.p-4.rounded-4
+                                            .text-primary.fw-bolder.mb-2 Prototipo de Personas
+                                            .small.fw-bolder Troya: El Camino de Aquiles
+                                            .small.text-muted Última actualización: Diciembre 2024
+                                    .col-lg-8
+                                        p.text-muted
+                                            | Este documento contiene el prototipo de personas clave para el diseño del proyecto "Troya: El Camino de Aquiles". Presenta perfiles detallados que identifican necesidades, frustraciones, y motivaciones de usuarios representativos que interactuarán con el producto.
+                                        // Botón para redireccionar al PDF
+                                        .mt-4
+                                            a.btn.btn-primary(href="/assets/docs/prototipo_personas.pdf" target="_blank")
+                                                i.bi.bi-file-earmark-pdf.me-2
+                                                | Ver Prototipo
+
+
+
+                    // Nueva sección: Video
+                    .container.py-5
+                        .text-center
+                            h2.text-secondary.fw-bold.mb-4 Video Explicando Necesidades
+                            p.text-muted.mb-4
+                                | Descubre más sobre el proyecto.
+
+                            // Video embebido
+                            .ratio.ratio-16x9
+                                video(controls autoplay)
+                                    source(src="/assets/videos/necesidades.mp4" type="video/mp4")
+                                    p Tu navegador no soporta la reproducción de video. Descárgalo 
+                                    a(href="/assets/videos/demo-video.mp4") aquí.
+
+                    // Prototipo de baja fidelidad
+                    h3.fw-bold.mb-3.text-center.text-gradient StoryBoard
+                    .container.mb-5
+                        // Carrusel de imágenes
+                        .carousel.slide(data-bs-ride="carousel", id="carouselExample")
+                            .carousel-inner
+                                each group, i in [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10]]
+                                    .carousel-item(class=i === 0 ? 'active' : '')
+                                        .row.g-4.justify-content-center
+                                            each val in group
+                                                .col-3
+                                                    .card.shadow-lg.border-0.card-prototype
+                                                        img.card-img-top.rounded-3(src=`/assets/images/troya/story${val}.jpeg`, alt=`Imagen ${val}`)
+                                                        .card-body.text-center
+                                                            h5.card-title.mb-0.text-gradient Necesidad #{val}
+
+                            // Controles del carrusel
+                            button.carousel-control-prev(type="button", data-bs-target="#carouselExample", data-bs-slide="prev")
+                                span.carousel-control-prev-icon(aria-hidden="true")
+                                span.visually-hidden Anterior
+                            button.carousel-control-next(type="button", data-bs-target="#carouselExample", data-bs-slide="next")
+                                span.carousel-control-next-icon(aria-hidden="true")
+                                span.visually-hidden Siguiente
+
+
+                    // Prototipo de Baja Fidelidad - Sin Carrusel
+                    h3.fw-bold.mb-3.text-center.text-gradient Resultados Finales
+                    .container.mb-5
+                        .row.g-4.justify-content-center
+                            // Imagen 1
+                            .col-md-6
+                                .card.shadow-lg.border-0.card-prototype
+                                    img.card-img-top.rounded-3(src="/assets/images/troya/final1.jpeg", alt="Resultado Final 1")
+                                    .card-body.text-center
+                                        h5.card-title.mb-0.text-gradient Resultado Final 1
+
+                            // Imagen 2
+                            .col-md-6
+                                .card.shadow-lg.border-0.card-prototype
+                                    img.card-img-top.rounded-3(src="/assets/images/troya/final2.jpeg", alt="Resultado Final 2")
+                                    .card-body.text-center
+                                        h5.card-title.mb-0.text-gradient Resultado Final 2
+
+                            // Imagen 3
+                            .col-md-6
+                                .card.shadow-lg.border-0.card-prototype
+                                    img.card-img-top.rounded-3(src="/assets/images/troya/final3.jpeg", alt="Resultado Final 2")
+                                    .card-body.text-center
+                                        h5.card-title.mb-0.text-gradient Resultado Final 3
+
+                            // Imagen 4
+                            .col-md-6
+                                .card.shadow-lg.border-0.card-prototype
+                                    img.card-img-top.rounded-3(src="/assets/images/troya/final4.jpeg", alt="Resultado Final 2")
+                                    .card-body.text-center
+                                        h5.card-title.mb-0.text-gradient Resultado Final 4
+
+
+                    // Nueva sección: Video
+                    .container.py-5
+                        .text-center
+                            h2.text-secondary.fw-bold.mb-4 Video entrevista con usuarios
+                            p.text-muted.mb-4
+                                | Descubre más sobre el proyecto.
+
+                            // Video embebido
+                            .ratio.ratio-16x9
+                                video(controls autoplay)
+                                    source(src="/assets/videos/" type="video/mp4")
+                                    p Tu navegador no soporta la reproducción de video. Descárgalo 
+                                    a(href="/assets/videos/demo-video.mp4") aquí.
+
+
+        // División de contenido
+        .pb-5

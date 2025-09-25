@@ -1,0 +1,84 @@
+// Importar una fuente moderna (puedes hacerlo en tu HTML o SCSS global)
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+// Estilos de la cronología
+.timeline {
+  position: relative;
+  padding-left: 2.5rem; // Espaciado más limpio
+  border-left: 3px solid #dcdcdc; // Línea vertical moderna
+  font-family: 'Poppins', sans-serif; // Fuente moderna
+
+  li {
+    position: relative;
+    margin-bottom: 2.5rem; // Más espacio entre elementos
+    padding-bottom: 1.5rem;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.1); // Línea separadora ligera
+
+    // Icono numerado
+    .timeline-icon {
+      width: 3rem;
+      height: 3rem;
+      line-height: 3rem;
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      background: linear-gradient(135deg, #6a11cb, #2575fc); // Gradiente más vibrante
+      color: #fff;
+      border-radius: 50%; // Hacerlo un círculo perfecto
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Sombra moderna
+    }
+
+    // Contenido del evento
+    .timeline-content {
+      margin-left: 2.5rem;
+
+      h5 {
+        font-size: 1.4rem; // Título más destacado
+        color: #3b3b3b; // Gris oscuro para mejor lectura
+        font-weight: 600; // Usar peso de fuente moderno
+        margin-bottom: 0.5rem;
+        text-transform: capitalize; // Estilo profesional
+      }
+
+      p {
+        color: #6c757d; // Texto en gris sutil
+        font-size: 1rem;
+        line-height: 1.8; // Mejor espaciado entre líneas
+        margin-bottom: 0.5rem;
+
+        &.text-muted {
+          font-size: 0.9rem;
+          color: #adb5bd; // Gris claro para fechas
+        }
+      }
+    }
+  }
+}
+
+// Responsivo
+@media (max-width: 768px) {
+  .timeline {
+    padding-left: 1.5rem;
+
+    li {
+      .timeline-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        line-height: 2.5rem;
+        font-size: 1rem;
+      }
+
+      .timeline-content {
+        margin-left: 2rem;
+
+        h5 {
+          font-size: 1.2rem;
+        }
+
+        p {
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}

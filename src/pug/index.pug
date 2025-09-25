@@ -1,0 +1,209 @@
+// src/pug/index.pug
+doctype html
+html(lang='en')
+
+    head
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        meta(name='description', content='')
+        meta(name='author', content='')
+
+        title HCI
+
+        // Favicon
+        link(rel='icon', type='image/x-icon', href='assets/favicon.ico')
+
+        include includes/css.pug
+
+    body.d-flex.flex-column.h-100
+
+        main.flex-shrink-0
+
+            // Navigation
+            include includes/navbar.pug
+
+            // Header
+            header.py-4.py-md-5
+                .container
+                    .row.justify-content-center
+                        .col-12.col-lg-10.col-xl-8.text-center
+                            h1.display-5.display-md-4.fw-bold.mb-3.mb-md-4
+                                span.text-primary Interacción Humano-Computador
+                            p.lead.text-muted.mb-4.mb-md-5
+                                | Aplicando principios de usabilidad y diseño centrado en el usuario
+                            
+                            // HCI Principles Cards
+                            .row.g-3.g-md-4.mb-4.mb-md-5
+                                .col-12.col-md-4
+                                    .card.border-0.shadow-sm.h-100
+                                        .card-body.text-center.p-3.p-md-4
+                                            i.fas.fa-user-friends.fa-2x.fa-md-3x.text-primary.mb-2.mb-md-3
+                                            h6.h5.fw-bold Usabilidad
+                                            p.small.text-muted.mb-0
+                                                | Diseño intuitivo que facilita la interacción natural
+                                
+                                .col-12.col-md-4
+                                    .card.border-0.shadow-sm.h-100
+                                        .card-body.text-center.p-3.p-md-4
+                                            i.fas.fa-palette.fa-2x.fa-md-3x.text-primary.mb-2.mb-md-3
+                                            h6.h5.fw-bold Diseño Centrado
+                                            p.small.text-muted.mb-0
+                                                | Metodologías centradas en el usuario
+                                
+                                .col-12.col-md-4
+                                    .card.border-0.shadow-sm.h-100
+                                        .card-body.text-center.p-3.p-md-4
+                                            i.fas.fa-chart-line.fa-2x.fa-md-3x.text-primary.mb-2.mb-md-3
+                                            h6.h5.fw-bold Experiencia de Usuario
+                                            p.small.text-muted.mb-0
+                                                | Optimización de la experiencia completa
+                            
+                            .d-grid.gap-2.d-md-flex.justify-content-md-center
+                                a.btn.btn-primary.btn-lg.px-3.px-md-4.py-2.py-md-3.fw-bold(href='resume.html') 
+                                    i.fas.fa-graduation-cap.me-1.me-md-2
+                                    | Curso
+                                a.btn.btn-outline-primary.btn-lg.px-3.px-md-4.py-2.py-md-3.fw-bold(href='projects.html') 
+                                    i.fas.fa-project-diagram.me-1.me-md-2
+                                    | Proyectos
+                                a.btn.btn-outline-secondary.btn-lg.px-3.px-md-4.py-2.py-md-3.fw-bold(href='video-game.html') 
+                                    i.fas.fa-vr-cardboard.me-1.me-md-2
+                                    | VR Game
+
+
+            // Team            
+            section#team.page-section.team-section.py-4.py-md-5
+                .container
+                    .text-center.mb-4.mb-md-5
+                        h2.section-heading.text-uppercase.fw-bold.h4.h-md-3 Equipo HCI
+                        h3.section-subheading.text-muted.small Especialistas en Interacción Humano-Computador
+                    
+                    .row.g-3.g-md-4
+                        .col-12.col-sm-6.col-lg-3
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.text-center.p-3.p-md-4
+                                    i.fas.fa-user-tie.fa-2x.fa-md-3x.text-primary.mb-2.mb-md-3
+                                    h6.h5.fw-bold Alain Cruz
+                                    p.text-muted.mb-2.mb-md-3.small UX Researcher
+                                    p.small.text-muted.mb-0
+                                        | Investigación de usuarios y metodologías de diseño
+                        
+                        .col-12.col-sm-6.col-lg-3
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.text-center.p-3.p-md-4
+                                    i.fas.fa-palette.fa-2x.fa-md-3x.text-primary.mb-2.mb-md-3
+                                    h6.h5.fw-bold Fabrizio Mattos
+                                    p.text-muted.mb-2.mb-md-3.small UI Designer
+                                    p.small.text-muted.mb-0
+                                        | Diseño de interfaces y principios de usabilidad
+                        
+                        .col-12.col-sm-6.col-lg-3
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.text-center.p-3.p-md-4
+                                    i.fas.fa-code.fa-2x.fa-md-3x.text-primary.mb-2.mb-md-3
+                                    h6.h5.fw-bold Diego Aquino
+                                    p.text-muted.mb-2.mb-md-3.small HCI Developer
+                                    p.small.text-muted.mb-0
+                                        | Implementación de principios de usabilidad
+                        
+                        .col-12.col-sm-6.col-lg-3
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.text-center.p-3.p-md-4
+                                    i.fas.fa-vr-cardboard.fa-2x.fa-md-3x.text-primary.mb-2.mb-md-3
+                                    h6.h5.fw-bold Piero Vizcarra
+                                    p.text-muted.mb-2.mb-md-3.small VR/AR Specialist
+                                    p.small.text-muted.mb-0
+                                        | Interacciones inmersivas y tecnologías emergentes
+
+            // Design Principles Section
+            section#principles.py-4.py-md-5.bg-light
+                .container
+                    .text-center.mb-4.mb-md-5
+                        h2.section-heading.text-uppercase.fw-bold.h4.h-md-3 Principios de Diseño Aplicados
+                        h3.section-subheading.text-muted.small Justificación de decisiones de diseño basadas en HCI
+                    
+                    .row.g-3.g-md-4
+                        .col-12.col-md-6.col-lg-3
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.p-3.p-md-4.text-center
+                                    i.fas.fa-eye.fa-2x.fa-md-3x.text-primary.mb-2.mb-md-3
+                                    h6.h5.fw-bold Jerarquía Visual
+                                    p.small.text-muted.mb-0
+                                        | Uso de tipografías y colores para guiar la atención del usuario de manera natural
+                        
+                        .col-12.col-md-6.col-lg-3
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.p-3.p-md-4.text-center
+                                    i.fas.fa-mobile-alt.fa-2x.fa-md-3x.text-primary.mb-2.mb-md-3
+                                    h6.h5.fw-bold Diseño Responsivo
+                                    p.small.text-muted.mb-0
+                                        | Adaptación automática a diferentes dispositivos manteniendo usabilidad
+                        
+                        .col-12.col-md-6.col-lg-3
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.p-3.p-md-4.text-center
+                                    i.fas.fa-universal-access.fa-2x.fa-md-3x.text-primary.mb-2.mb-md-3
+                                    h6.h5.fw-bold Accesibilidad
+                                    p.small.text-muted.mb-0
+                                        | Navegación clara, contraste adecuado y estructura semántica
+                        
+                        .col-12.col-md-6.col-lg-3
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.p-3.p-md-4.text-center
+                                    i.fas.fa-bolt.fa-2x.fa-md-3x.text-primary.mb-2.mb-md-3
+                                    h6.h5.fw-bold Rendimiento
+                                    p.small.text-muted.mb-0
+                                        | Carga rápida y experiencia fluida optimizada para el usuario
+
+            // Methodology Section
+            section#methodology.py-4.py-md-5
+                .container
+                    .text-center.mb-4.mb-md-5
+                        h2.section-heading.text-uppercase.fw-bold.h4.h-md-3 Metodología HCI
+                        h3.section-subheading.text-muted.small Proceso de diseño centrado en el usuario
+                    
+                    .row.g-3.g-md-4
+                        .col-12.col-md-4
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.p-3.p-md-4.text-center
+                                    .badge.bg-primary.rounded-pill.mb-3.px-3.py-2 1
+                                    h6.h5.fw-bold Investigación
+                                    p.small.text-muted.mb-0
+                                        | Análisis de necesidades y comportamiento de usuarios
+                        
+                        .col-12.col-md-4
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.p-3.p-md-4.text-center
+                                    .badge.bg-primary.rounded-pill.mb-3.px-3.py-2 2
+                                    h6.h5.fw-bold Prototipado
+                                    p.small.text-muted.mb-0
+                                        | Creación de versiones iterativas para validar conceptos
+                        
+                        .col-12.col-md-4
+                            .card.border-0.shadow-sm.h-100
+                                .card-body.p-3.p-md-4.text-center
+                                    .badge.bg-primary.rounded-pill.mb-3.px-3.py-2 3
+                                    h6.h5.fw-bold Evaluación
+                                    p.small.text-muted.mb-0
+                                        | Testing de usabilidad y refinamiento continuo
+
+            // Featured Project Section
+            section.py-4.py-md-5.bg-primary.text-white
+                .container
+                    .row.justify-content-center.align-items-center
+                        .col-12.col-lg-8.text-center
+                            h2.display-6.display-md-5.fw-bold.mb-3.mb-md-4
+                                i.fas.fa-vr-cardboard.me-2.me-md-3
+                                | Proyecto Destacado
+                            p.lead.mb-4.mb-md-5
+                                | Explora nuestro proyecto VR Escape Room y descubre cómo aplicamos principios de HCI en realidad virtual
+                            .d-grid.gap-2.d-md-flex.justify-content-md-center
+                                a.btn.btn-light.btn-lg.px-4.py-3.fw-bold(href='projects.html')
+                                    i.fas.fa-project-diagram.me-2
+                                    | Ver Proyecto Completo
+                                a.btn.btn-outline-light.btn-lg.px-4.py-3.fw-bold(href='video-game.html')
+                                    i.fas.fa-play.me-2
+                                    | Demo VR
+
+        // Footer
+        include includes/footer.pug
+        include includes/scripts.pug
