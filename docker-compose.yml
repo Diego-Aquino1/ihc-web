@@ -1,15 +1,9 @@
 services:
-  hci-website:
+  ihc-web:
     build: .
-    container_name: hci-team-website
     ports:
-      - "8081:8080"
-    restart: unless-stopped
+      - "8081:8000"
     environment:
       - NODE_ENV=production
-    healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8080"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 40s
+    restart: unless-stopped
+    container_name: ihc-web-app

@@ -1,32 +1,29 @@
-# Use Node.js 18 Alpine for smaller image size
-FROM node:18-alpine AS builder
+# Use the official Node.js 18 image as base
+FROM node:18-alpine
 
-# Set working directory
+# Set the working directory
 WORKDIR /app
 
 # Copy package files
 COPY package*.json ./
 
 # Install all dependencies (including dev dependencies for build)
-RUN npm ci
+RUN npm install
 
-# Copy source code
+# Copy the rest of the application
 COPY . .
 
-# Build the project
+# Build the application
 RUN npm run build
 
-# Production stage with Nginx
-FROM nginx:alpine
+# Install serve to run the built application
+RUN npm install -g serve
 
-# Copy built files from builder stage
-COPY --from=builder /app/dist /usr/share/nginx/html
+# Remove dev dependencies to reduce image size
+RUN npm prune --production
 
-# Copy custom nginx configuration
-COPY nginx.conf /etc/nginx/nginx.conf
+# Expose port 8000
+EXPOSE 8000
 
-# Expose port 8080 (avoiding port 3000 as requested)
-EXPOSE 8080
-
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Start the application
+CMD ["serve", "-s", "dist", "-l", "8000"]
