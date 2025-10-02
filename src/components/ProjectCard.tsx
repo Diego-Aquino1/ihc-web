@@ -74,7 +74,7 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
             onClick={onClick}
             className="w-full group-hover:bg-primary/90 transition-colors"
           >
-            Ver detalles
+            Compra ahora
             <ExternalLink className="ml-2 h-4 w-4" />
           </Button>
         </CardFooter>
