@@ -114,8 +114,12 @@ export function ProjectDetail() {
             </div>
             
             <div className="relative">
-              <div className="w-full h-96 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg flex items-center justify-center">
-                <Gamepad2 className="w-24 h-24 text-primary" />
+              <div className="w-full h-96 rounded-lg overflow-hidden">
+                <img
+                  src="/gameimage.jpeg"
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>
