@@ -11,9 +11,9 @@ export function Navigation() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b sticky top-0 z-50"
+      className="absolute top-0 inset-x-0 z-50 bg-background/40 backdrop-blur supports-[backdrop-filter]:bg-background/30 border-b border-white/5"
     >
-      <div className="container mx-auto px-4 py-4">
+      <div className="px-6 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2">
             <Gamepad2 className="h-6 w-6 text-primary" />

@@ -2,226 +2,174 @@ import { motion } from "framer-motion"
 import { useParams, useNavigate } from "react-router-dom"
 import { projects } from "@/data/projects"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, Gamepad2, CheckCircle, Star, Users, Clock } from "lucide-react"
-import { Breadcrumbs } from "@/components/Breadcrumbs"
+import { ArrowLeft, Gamepad2 } from "lucide-react"
+import { useState } from "react"
 
 export function ProjectDetail() {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
   const project = projects.find(p => p.id === id)
 
+  const [activeTab, setActiveTab] = useState<"descripcion" | "caracteristicas" | "multimedia">("descripcion")
+
   if (!project) {
     return (
-      <div className="container mx-auto px-4 py-16 text-center">
-        <h1 className="text-2xl font-bold mb-4">Proyecto no encontrado</h1>
-        <Button onClick={() => navigate("/")}>
-          <ArrowLeft className="mr-2 h-4 w-4" />
-          Volver al inicio
-        </Button>
-      </div>
-    )
-  }
-
-  if (project.status === "coming-soon") {
-    return (
-      <div className="container mx-auto px-4 py-16 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="max-w-2xl mx-auto"
-        >
-          <Clock className="w-16 h-16 mx-auto mb-4 text-muted-foreground" />
-          <h1 className="text-3xl font-bold mb-4">Próximamente...</h1>
-          <p className="text-muted-foreground mb-8">
-            Estamos trabajando en algo increíble. Mantente atento para más información.
-          </p>
+      <div className="h-screen w-screen overflow-hidden grid place-items-center bg-background">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold mb-4">Proyecto no encontrado</h1>
           <Button onClick={() => navigate("/")}>
             <ArrowLeft className="mr-2 h-4 w-4" />
             Volver al inicio
           </Button>
-        </motion.div>
+        </div>
       </div>
     )
   }
 
-  const breadcrumbItems = [
-    { label: "Inicio", href: "/" },
-    { label: project.title, isCurrentPage: true }
-  ]
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
-      <Breadcrumbs items={breadcrumbItems} />
-      
-      <div className="container mx-auto px-4 py-8">
-        {/* Header */}
+    <div className="h-screen w-screen overflow-hidden relative bg-background">
+      {/* Fondo animado sutil */}
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2 }}
+      >
+        <div className="absolute inset-0 bg-[radial-gradient(1200px_600px_at_80%_-10%,hsl(var(--primary)/0.10),transparent_60%),radial-gradient(800px_400px_at_20%_110%,hsl(var(--primary)/0.06),transparent_60%)]" />
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-8"
-        >
-          <Button
-            variant="ghost"
-            onClick={() => navigate("/")}
-            className="mb-6"
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Volver a proyectos
+          className="absolute -inset-32 opacity-[0.06]"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+          style={{
+            background:
+              "conic-gradient(from 0deg, transparent 0deg, hsl(var(--primary)/0.08) 90deg, transparent 180deg, hsl(var(--primary)/0.08) 270deg, transparent 360deg)",
+          }}
+        />
+      </motion.div>
+
+      {/* Contenido */}
+      <div className="relative z-10 h-full w-full flex flex-col">
+        {/* Header minimal */}
+        <div className="flex items-center justify-between px-6 pt-6">
+          <Button variant="ghost" onClick={() => navigate("/")}> 
+            <ArrowLeft className="mr-2 h-4 w-4" /> Volver
           </Button>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-                {project.title}
-              </h1>
-              <p className="text-lg text-muted-foreground mb-6">
-                {project.shortDescription}
-              </p>
-              
-              {/* Technologies */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                {project.technologies.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full border border-primary/20"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-4 mb-8">
-                <div className="text-center p-4 bg-background rounded-lg border">
-                  <Star className="w-6 h-6 mx-auto mb-2 text-primary" />
-                  <div className="text-xl font-bold">4.9</div>
-                  <div className="text-xs text-muted-foreground">Rating</div>
-                </div>
-                <div className="text-center p-4 bg-background rounded-lg border">
-                  <Users className="w-6 h-6 mx-auto mb-2 text-primary" />
-                  <div className="text-xl font-bold">500+</div>
-                  <div className="text-xs text-muted-foreground">Players</div>
-                </div>
-                <div className="text-center p-4 bg-background rounded-lg border">
-                  <Clock className="w-6 h-6 mx-auto mb-2 text-primary" />
-                  <div className="text-xl font-bold">45m</div>
-                  <div className="text-xs text-muted-foreground">Duration</div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="relative">
-              <div className="w-full h-96 rounded-lg overflow-hidden">
-                <img
-                  src="/gameimage.jpeg"
-                  alt={project.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </motion.div>
+          <div className="text-sm text-muted-foreground">{project.category}</div>
+        </div>
 
-        {/* Description */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mb-12"
-        >
-          <Card>
-            <CardHeader>
-              <CardTitle>Descripción del Proyecto</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="prose prose-gray max-w-none">
-                {project.longDescription.split('\n').map((paragraph, index) => (
-                  <p key={index} className="text-muted-foreground mb-4">
-                    {paragraph.trim()}
-                  </p>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </motion.section>
+        {/* Hero */}
+        <div className="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-6 items-center px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-3">
+              {project.title}
+            </h1>
+            <p className="text-base md:text-lg text-muted-foreground mb-5">
+              {project.shortDescription}
+            </p>
+            <div className="flex flex-wrap gap-2 mb-6">
+              {project.technologies.map((tech) => (
+                <span
+                  key={tech}
+                  className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full border border-primary/20"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+            <div className="flex flex-col sm:flex-row items-center gap-3">
+              <Button size="lg" className="px-6">
+                <Gamepad2 className="mr-2 h-5 w-5" /> Probar demo
+              </Button>
+              <Button size="lg" variant="outline" className="px-6">
+                Ver más
+              </Button>
+            </div>
+          </motion.div>
 
-        {/* Features */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="mb-12"
-        >
-          <h2 className="text-3xl font-bold mb-6">Características Principales</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {project.features.map((feature, index) => (
-              <motion.div
-                key={feature}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
-                className="flex items-center p-4 bg-background rounded-lg border"
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.1 }}
+            className="relative h-[48vh] lg:h-[58vh] rounded-xl overflow-hidden border"
+          >
+            <img
+              src="/gameimage.jpeg"
+              alt={project.title}
+              className="w-full h-full object-cover"
+            />
+            <motion.div
+              className="absolute inset-0"
+              initial={{ opacity: 0 }}
+              whileHover={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+              style={{ boxShadow: "inset 0 0 0 1px hsl(var(--primary)/0.18)" }}
+            />
+          </motion.div>
+        </div>
+
+        {/* Tabs inline sin scroll */}
+        <div className="px-8 pb-8">
+          <div className="flex items-center gap-2 text-sm">
+            {[
+              { key: "descripcion", label: "Descripción" },
+              { key: "caracteristicas", label: "Características" },
+              { key: "multimedia", label: "Multimedia" },
+            ].map(({ key, label }) => (
+              <button
+                key={key}
+                onClick={() => setActiveTab(key as any)}
+                className={`relative px-3 py-1 rounded-md transition-colors ${
+                  activeTab === key ? "text-foreground" : "text-muted-foreground"
+                }`}
               >
-                <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                <span className="text-sm">{feature}</span>
-              </motion.div>
+                {label}
+                {activeTab === key && (
+                  <motion.span
+                    layoutId="pill"
+                    className="absolute inset-0 -z-10 rounded-md bg-primary/10 border border-primary/20"
+                  />
+                )}
+              </button>
             ))}
           </div>
-        </motion.section>
 
-        {/* Screenshots */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="mb-12"
-        >
-          <h2 className="text-3xl font-bold mb-6">Capturas del Juego</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {project.screenshots.map((_, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3, delay: 0.8 + index * 0.1 }}
-                className="aspect-video bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg flex items-center justify-center border"
-              >
-                <span className="text-muted-foreground">Captura {index + 1}</span>
-              </motion.div>
-            ))}
+          <div className="mt-4 h-[18vh] lg:h-[16vh] overflow-hidden relative">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35 }}
+              className="h-full"
+            >
+              {activeTab === "descripcion" && (
+                <p className="text-sm text-muted-foreground leading-relaxed line-clamp-5">
+                  {project.longDescription.replace(/\n+/g, " ").trim()}
+                </p>
+              )}
+              {activeTab === "caracteristicas" && (
+                <div className="flex flex-wrap gap-2 text-xs">
+                  {project.features.map((feature) => (
+                    <span key={feature} className="px-2 py-1 rounded border bg-background">
+                      {feature}
+                    </span>
+                  ))}
+                </div>
+              )}
+              {activeTab === "multimedia" && (
+                <div className="grid grid-cols-3 gap-3 h-full">
+                  {project.screenshots.slice(0, 3).map((_, idx) => (
+                    <div key={idx} className="rounded-md border bg-muted/20" />
+                  ))}
+                </div>
+              )}
+            </motion.div>
           </div>
-        </motion.section>
-
-        {/* Call to Action */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
-          className="text-center py-12"
-        >
-          <Card className="max-w-2xl mx-auto bg-gradient-to-r from-primary/5 to-secondary/5 border-primary/20">
-            <CardHeader>
-              <CardTitle className="text-2xl">¿Listo para la aventura?</CardTitle>
-              <CardDescription className="text-base">
-                Experimenta la emoción de escapar de una nave espacial en realidad virtual
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="bg-primary hover:bg-primary/90">
-                  <Gamepad2 className="mr-2 h-5 w-5" />
-                  Descargar Demo
-                </Button>
-                <Button variant="outline" size="lg">
-                  Ver Trailer
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        </motion.section>
+        </div>
       </div>
     </div>
   )

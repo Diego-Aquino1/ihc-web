@@ -34,14 +34,28 @@ export const projects: Project[] = [
     category: "Realidad Virtual"
   },
   {
-    id: "project-2",
-    title: "Próximo Proyecto",
-    shortDescription: "Algo increíble está por venir...",
-    longDescription: "Estamos trabajando en nuestro próximo proyecto. Mantente atento para más información.",
-    technologies: [],
-    status: "coming-soon",
-    features: [],
-    screenshots: [],
-    category: "Próximamente"
+    id: "interview-sim",
+    title: "Simulador de Entrevistas",
+    shortDescription: "Entrena entrevistas reales con feedback inmediato y escenarios adaptativos.",
+    longDescription: `
+      Supera el miedo escénico y mejora tu desempeño con un simulador de entrevistas 
+      que replica preguntas, presión de tiempo y evaluación por competencias. 
+      Obtén feedback accionable sobre tu lenguaje, claridad, estructura STAR y tiempos.
+    `,
+    technologies: ["React", "TypeScript", "NLP", "WebRTC"],
+    status: "available",
+    features: [
+      "Bancos de preguntas por rol y seniority",
+      "Feedback en tiempo real y análisis post-sesión",
+      "Modo práctica y modo evaluación",
+      "Simulación de entrevista técnica y conductual",
+      "Historial y métricas de progreso"
+    ],
+    screenshots: [
+      "/api/placeholder/600/400",
+      "/api/placeholder/600/400",
+      "/api/placeholder/600/400"
+    ],
+    category: "Talento / Capacitación"
   }
 ]
