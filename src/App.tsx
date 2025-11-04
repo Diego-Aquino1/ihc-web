@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 import { Navigation } from "@/components/Navigation"
 import { Home } from "@/pages/Home"
 import { ProjectDetail } from "@/pages/ProjectDetail"
+import { ScrollToTop } from "@/components/ScrollToTop"
 import { motion } from "framer-motion"
 
 function AppShell() {
@@ -9,13 +10,13 @@ function AppShell() {
   const isHome = location.pathname === "/"
 
   return (
-    <div className={isHome ? "h-screen bg-background overflow-hidden" : "min-h-screen bg-background"}>
+    <div className={isHome ? "min-h-screen bg-background" : "min-h-screen bg-background"}>
+      <ScrollToTop />
       {!isHome && <Navigation />}
       <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className={isHome ? "h-full" : undefined}
       >
         <Routes>
           <Route path="/" element={<Home />} />
