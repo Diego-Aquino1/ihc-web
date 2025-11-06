@@ -1,10 +1,26 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Home } from "lucide-react"
+import { Home, ChevronRight } from "lucide-react"
 import { Link, useLocation } from "react-router-dom"
+import { projects } from "@/data/projects"
 
 export function Navigation() {
   const location = useLocation()
+  const pathname = location.pathname
+
+  // Breadcrumbs básicos basados en la ruta actual
+  let breadcrumbItems: Array<{ label: string; to?: string }> = []
+  if (pathname === "/") {
+    breadcrumbItems = [{ label: "Inicio", to: "/" }, { label: "Productos" }]
+  } else if (pathname.startsWith("/project/")) {
+    const id = pathname.split("/")[2]
+    const project = projects.find((p) => p.id === id)
+    breadcrumbItems = [
+      { label: "Inicio", to: "/" },
+      { label: "Productos", to: "/" },
+      { label: project?.title || "Proyecto" },
+    ]
+  }
 
   return (
     <motion.nav
@@ -37,6 +53,24 @@ export function Navigation() {
             </Button>
           </div>
         </div>
+        {breadcrumbItems.length > 0 && (
+          <div className="max-w-7xl mx-auto mt-2 text-sm text-blue-300 flex items-center gap-2">
+            {breadcrumbItems.map((item, idx) => (
+              <div key={idx} className="flex items-center gap-2">
+                {idx > 0 && <ChevronRight className="h-4 w-4" />}
+                {item.to ? (
+                  <Link to={item.to} className="hover:text-blue-200 transition-colors">
+                    {item.label}
+                  </Link>
+                ) : (
+                  <span className={idx === breadcrumbItems.length - 1 ? "text-white font-medium" : "text-blue-400"}>
+                    {item.label}
+                  </span>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </motion.nav>
   )

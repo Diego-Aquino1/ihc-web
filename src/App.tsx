@@ -12,7 +12,7 @@ function AppShell() {
   return (
     <div className={isHome ? "min-h-screen bg-background" : "min-h-screen bg-background"}>
       <ScrollToTop />
-      {!isHome && <Navigation />}
+      <Navigation />
       <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

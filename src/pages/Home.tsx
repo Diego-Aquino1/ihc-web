@@ -12,21 +12,9 @@ export function Home() {
   const [hoveredSection, setHoveredSection] = useState<"space" | "interview" | null>(null)
 
   useEffect(() => {
-    // Animación del logo MistiLab
+    // Animación del logo MistiLab (desactivada al usar Navigation)
     if (logoRef.current) {
-      gsap.fromTo(
-        logoRef.current,
-        {
-          opacity: 0,
-          y: -20,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power3.out",
-        }
-      )
+      // mantenemos el guardado para no romper, pero sin contenido
     }
 
     // Animación de entrada para las secciones split
@@ -159,7 +147,7 @@ export function Home() {
   }
 
   return (
-    <div className="h-screen w-screen bg-gradient-to-b from-slate-950 via-blue-950 to-slate-950 text-white overflow-hidden relative">
+    <div className="h-screen w-screen bg-gradient-to-b from-slate-950 via-blue-950 to-slate-950 text-white overflow-hidden relative pt-20">
       {/* Estrellas de fondo animadas */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         {Array.from({ length: 30 }).map((_, i) => (
@@ -175,19 +163,7 @@ export function Home() {
         ))}
       </div>
 
-      {/* Header con logo centrado */}
-      <header className="absolute top-0 left-0 right-0 z-50 px-8 py-6">
-        <div className="relative h-full flex items-center justify-center">
-          <div ref={logoRef} className="absolute left-1/2 transform -translate-x-1/2">
-            <img
-              src="/logomistilab.png"
-              alt="MistiLab"
-              className="h-10 md:h-12 w-auto brightness-0 invert"
-            />
-          </div>
-          
-        </div>
-      </header>
+      {/* Header global provisto por <Navigation />. Se añade pt-20 arriba para separación visual. */}
 
       {/* Split Screen - Dos productos */}
       <div className="h-full w-full flex relative">
