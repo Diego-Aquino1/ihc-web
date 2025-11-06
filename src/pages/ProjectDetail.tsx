@@ -273,22 +273,7 @@ export function ProjectDetail() {
     <div className={`min-h-screen bg-gradient-to-b ${assets.bgGradient} text-white pt-20`}>
       {/* Contenido */}
       <div ref={contentRef} className="relative z-10 max-w-7xl mx-auto px-6 py-12">
-        {/* Breadcrumbs mejorados */}
-        <div className="flex items-center gap-2 text-sm text-blue-300 mb-6">
-          <button onClick={() => navigate("/")} className="hover:text-blue-200 transition-colors">
-            Inicio
-          </button>
-          <ChevronRight className="h-4 w-4" />
-          <button onClick={() => navigate("/")} className="hover:text-blue-200 transition-colors">
-            Productos
-          </button>
-          <ChevronRight className="h-4 w-4" />
-          <span className="text-blue-400">{project.title}</span>
-          <ChevronRight className="h-4 w-4" />
-          <span className="text-white font-medium">
-            {tabConfig.find((t) => t.key === activeTab)?.label}
-          </span>
-        </div>
+        
 
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
@@ -304,17 +289,7 @@ export function ProjectDetail() {
           </div>
         </div>
 
-        {/* Logo del proyecto */}
-        <div className="flex justify-center mb-8">
-          <motion.img
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: "back.out(1.7)" }}
-            src={assets.logo}
-            alt={project.title}
-            className="h-24 md:h-32 w-auto"
-          />
-        </div>
+        
 
         {/* Hero */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-16">
@@ -323,10 +298,10 @@ export function ProjectDetail() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-3 text-white">
               {project.title}
             </h1>
-            <p className="text-lg md:text-xl text-blue-200 mb-6 leading-relaxed">
+            <p className="text-lg md:text-xl text-blue-200 mb-8 leading-relaxed max-w-2xl">
               {project.shortDescription}
             </p>
             <div className="flex flex-wrap gap-2 mb-8">
@@ -349,7 +324,7 @@ export function ProjectDetail() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/10 px-8 py-6 text-lg font-semibold"
+                className="border-blue-400/30 text-blue-200 hover:bg-blue-400/10 px-8 py-6 text-lg font-semibold"
               >
                 Ver más
               </Button>
@@ -437,7 +412,7 @@ export function ProjectDetail() {
                 <Icon className="h-4 w-4" />
                 <span>{label}</span>
                 {count !== null && (
-                  <span className="ml-1 px-2 py-0.5 text-xs rounded-full bg-blue-500/20 text-blue-300">
+                  <span className="ml-1 text-[10px] text-blue-400">
                     {count}
                   </span>
                 )}
@@ -447,7 +422,7 @@ export function ProjectDetail() {
                 {activeTab === key && (
                   <motion.div
                     layoutId="activeTab"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-cyan-400"
                   />
                 )}
               </button>
@@ -462,9 +437,12 @@ export function ProjectDetail() {
             className="mt-6 min-h-[200px]"
             >
               {activeTab === "descripcion" && (
-              <p className="text-blue-200 leading-relaxed text-lg whitespace-pre-line">
-                {project.longDescription.trim()}
+              <div>
+                <h2 className="text-2xl font-semibold text-blue-100 mb-3">Descripción</h2>
+                <p className="text-blue-200 leading-relaxed text-lg whitespace-pre-line max-w-3xl">
+                  {project.longDescription.trim()}
                 </p>
+              </div>
               )}
 
               {activeTab === "caracteristicas" && (
@@ -475,10 +453,10 @@ export function ProjectDetail() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.1 }}
-                    className="p-4 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-start gap-3"
+                    className="p-4 rounded-lg bg-blue-500/5 border border-blue-500/10 flex items-start gap-3"
                   >
                     <Sparkles className="h-5 w-5 text-cyan-400 mt-0.5 flex-shrink-0" />
-                    <span className="text-blue-200">{feature}</span>
+                    <span className="text-blue-100">{feature}</span>
                   </motion.div>
                   ))}
                 </div>
@@ -840,7 +818,7 @@ export function ProjectDetail() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: idx * 0.1 }}
-                      className="p-6 rounded-xl bg-blue-500/10 border border-blue-500/20"
+                      className="p-6 rounded-xl bg-blue-500/5 border border-blue-500/10"
                     >
                       <div className="flex items-center gap-1 mb-4">
                         {Array.from({ length: 5 }).map((_, i) => (
@@ -856,8 +834,8 @@ export function ProjectDetail() {
                       </div>
                       <p className="text-blue-200 mb-4 italic">"{testimonial.text}"</p>
                       <div>
-                        <p className="font-semibold text-blue-300">{testimonial.name}</p>
-                        <p className="text-sm text-blue-400">{testimonial.role}</p>
+                        <p className="font-semibold text-blue-100">{testimonial.name}</p>
+                        <p className="text-sm text-blue-300">{testimonial.role}</p>
                       </div>
                     </motion.div>
                   ))}
