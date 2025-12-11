@@ -28,8 +28,8 @@ export function AccordionItem({ title, children, defaultOpen = false }: Accordio
       </button>
       <div
         className={cn(
-          "overflow-hidden transition-all duration-300 ease-in-out",
-          isOpen ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
+          "transition-all duration-300 ease-in-out",
+          isOpen ? "max-h-none opacity-100 overflow-visible" : "max-h-0 opacity-0 overflow-hidden"
         )}
       >
         <div className="p-4 text-blue-200">{children}</div>

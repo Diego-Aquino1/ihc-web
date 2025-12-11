@@ -19,6 +19,10 @@ import {
   Monitor,
   Cpu,
   HardDrive,
+  Layers,
+  Image as ImageIcon,
+  Video,
+  File,
 } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
 import { gsap } from "gsap"
@@ -40,7 +44,7 @@ export function ProjectDetail() {
   const [activeTab, setActiveTab] = useState<
     "descripcion" | "caracteristicas" | "multimedia" | "desarrollo" | "testimonios" | "faqs"
   >("descripcion")
-  const [activeDevSubTab, setActiveDevSubTab] = useState<"cuestionario" | "entrevistas" | "material">(
+  const [activeDevSubTab, setActiveDevSubTab] = useState<"cuestionario" | "entrevistas" | "etapas" | "material">(
     "cuestionario"
   )
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null)
@@ -501,10 +505,11 @@ export function ProjectDetail() {
             {activeTab === "desarrollo" && id === "interview-sim" && (
               <div className="space-y-4">
                 {/* Tabs internos para desarrollo */}
-                <div className="flex items-center gap-2 border-b border-blue-500/20 pb-2">
+                <div className="flex items-center gap-2 border-b border-blue-500/20 pb-2 overflow-x-auto">
                   {[
                     { key: "cuestionario", label: "Cuestionario", icon: FileText },
                     { key: "entrevistas", label: "Entrevistas", icon: Users },
+                    { key: "etapas", label: "Etapas", icon: Layers },
                     { key: "material", label: "Material", icon: ExternalLink },
                   ].map(({ key, label, icon: Icon }) => (
                     <button
@@ -724,6 +729,254 @@ export function ProjectDetail() {
                           ))}
                         </div>
                       </div>
+                    </div>
+                  )}
+
+                  {activeDevSubTab === "etapas" && (
+                    <div className="space-y-6 pb-8">
+                      <div className="flex items-center gap-3 mb-6">
+                        <Layers className="h-6 w-6 text-blue-400" />
+                        <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+                          Etapas del Proyecto
+                        </h3>
+                      </div>
+                      <p className="text-blue-200/80 text-sm mb-6">
+                        Documentación y evidencias de cada etapa del proceso de desarrollo de InterView.
+                      </p>
+
+                      {/* ETAPA 0: Propuesta */}
+                      <Accordion>
+                        <AccordionItem title="ETAPA 0: Propuesta" defaultOpen={true}>
+                          <div className="space-y-4 pt-2">
+                            <p className="text-blue-200/80 text-sm">
+                              Documento de propuesta inicial del proyecto InterView.
+                            </p>
+                            
+                            {/* Documento PDF */}
+                            <div className="space-y-3">
+                              <h5 className="text-base font-semibold text-blue-300 flex items-center gap-2">
+                                <File className="h-4 w-4" />
+                                Documentos
+                              </h5>
+                              <a
+                                href="https://drive.google.com/file/d/1H-YSROlpbVHxVlkrungj3skmmCAXCslz/view?usp=sharing"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-3 text-blue-300 hover:text-blue-200 transition-colors p-3 rounded-lg bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/30 group"
+                              >
+                                <div className="p-2 rounded bg-blue-500/20 group-hover:bg-blue-500/30 transition-colors">
+                                  <FileText className="h-5 w-5" />
+                                </div>
+                                <div className="flex-1">
+                                  <p className="font-medium">HCI_Propuesta_Entrevistas.pdf</p>
+                                  <p className="text-xs text-blue-400">Documento de propuesta</p>
+                                </div>
+                                <ExternalLink className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                              </a>
+                              
+                              {/* Preview del documento */}
+                              <div className="mt-4 rounded-lg overflow-hidden border border-blue-500/30 bg-black/20">
+                                <div className="w-full" style={{ minHeight: '600px', height: '80vh', maxHeight: '800px' }}>
+                                  <iframe
+                                    src="https://drive.google.com/file/d/1H-YSROlpbVHxVlkrungj3skmmCAXCslz/preview"
+                                    className="w-full h-full"
+                                    title="Vista previa - Propuesta"
+                                    allow="autoplay"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </AccordionItem>
+
+                        {/* ETAPA 1: Needfinding */}
+                        <AccordionItem title="ETAPA 1: Needfinding">
+                          <div className="space-y-4 pt-2">
+                            <p className="text-blue-200/80 text-sm">
+                              Análisis de necesidades y descubrimiento de problemas de los usuarios.
+                            </p>
+                            
+                            {/* Documento PDF */}
+                            <div className="space-y-3">
+                              <h5 className="text-base font-semibold text-blue-300 flex items-center gap-2">
+                                <File className="h-4 w-4" />
+                                Documentos
+                              </h5>
+                              <a
+                                href="https://drive.google.com/file/d/1-P7ARL97TNIfo00azFuPpC02D9NPJbRc/view?usp=sharing"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-3 text-blue-300 hover:text-blue-200 transition-colors p-3 rounded-lg bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/30 group"
+                              >
+                                <div className="p-2 rounded bg-blue-500/20 group-hover:bg-blue-500/30 transition-colors">
+                                  <FileText className="h-5 w-5" />
+                                </div>
+                                <div className="flex-1">
+                                  <p className="font-medium">HCI NeedFinding.pdf</p>
+                                  <p className="text-xs text-blue-400">Análisis de necesidades</p>
+                                </div>
+                                <ExternalLink className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                              </a>
+                              
+                              {/* Preview del documento */}
+                              <div className="mt-4 rounded-lg overflow-hidden border border-blue-500/30 bg-black/20">
+                                <div className="w-full" style={{ minHeight: '600px', height: '80vh', maxHeight: '800px' }}>
+                                  <iframe
+                                    src="https://drive.google.com/file/d/1-P7ARL97TNIfo00azFuPpC02D9NPJbRc/preview"
+                                    className="w-full h-full"
+                                    title="Vista previa - Needfinding"
+                                    allow="autoplay"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Imágenes */}
+                            <div className="space-y-3 mt-6">
+                              <h5 className="text-base font-semibold text-blue-300 flex items-center gap-2">
+                                <ImageIcon className="h-4 w-4" />
+                                Imágenes
+                              </h5>
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <a
+                                  href="https://drive.google.com/file/d/1CjQHwC7KLOP4Luf0_hDzsZ3xjtU-jfXf/view?usp=drive_link"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="group relative overflow-hidden rounded-lg border-2 border-blue-500/30 hover:border-blue-500/60 transition-all block"
+                                >
+                                  <div className="aspect-video bg-black/20 relative w-full" style={{ minHeight: '300px' }}>
+                                    <iframe
+                                      src="https://drive.google.com/file/d/1CjQHwC7KLOP4Luf0_hDzsZ3xjtU-jfXf/preview"
+                                      className="w-full h-full absolute inset-0"
+                                      title="Imagen 1 - Needfinding"
+                                      allow="autoplay"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                                  </div>
+                                  <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                                    <p className="text-white text-sm font-medium">Imagen 1</p>
+                                    <ExternalLink className="h-3 w-3 text-white mt-1" />
+                                  </div>
+                                </a>
+                                <a
+                                  href="https://drive.google.com/file/d/1gdBQVyxu7rBFeT0qJWpMYQt18dxeq6DP/view?usp=drive_link"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="group relative overflow-hidden rounded-lg border-2 border-blue-500/30 hover:border-blue-500/60 transition-all block"
+                                >
+                                  <div className="aspect-video bg-black/20 relative w-full" style={{ minHeight: '300px' }}>
+                                    <iframe
+                                      src="https://drive.google.com/file/d/1gdBQVyxu7rBFeT0qJWpMYQt18dxeq6DP/preview"
+                                      className="w-full h-full absolute inset-0"
+                                      title="Imagen 2 - Needfinding"
+                                      allow="autoplay"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                                  </div>
+                                  <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                                    <p className="text-white text-sm font-medium">Imagen 2</p>
+                                    <ExternalLink className="h-3 w-3 text-white mt-1" />
+                                  </div>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </AccordionItem>
+
+                        {/* ETAPA 2: Análisis de Usuarios */}
+                        <AccordionItem title="ETAPA 2: Análisis de Usuarios">
+                          <div className="space-y-4 pt-2">
+                            <p className="text-blue-200/80 text-sm">
+                              Análisis detallado de usuarios y sus características, incluyendo entrevistas y videos.
+                            </p>
+                            
+                            {/* Documento PDF */}
+                            <div className="space-y-3">
+                              <h5 className="text-base font-semibold text-blue-300 flex items-center gap-2">
+                                <File className="h-4 w-4" />
+                                Documentos
+                              </h5>
+                              <a
+                                href="https://drive.google.com/file/d/1_j_fVURjnXfof8jrbbI6zHvDo0fbcrAL/view?usp=sharing"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-3 text-blue-300 hover:text-blue-200 transition-colors p-3 rounded-lg bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/30 group"
+                              >
+                                <div className="p-2 rounded bg-blue-500/20 group-hover:bg-blue-500/30 transition-colors">
+                                  <FileText className="h-5 w-5" />
+                                </div>
+                                <div className="flex-1">
+                                  <p className="font-medium">ETAPA 2_ ANALISIS DE USUARIOS.pdf</p>
+                                  <p className="text-xs text-blue-400">Análisis de usuarios</p>
+                                </div>
+                                <ExternalLink className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                              </a>
+                              
+                              {/* Preview del documento */}
+                              <div className="mt-4 rounded-lg overflow-hidden border border-blue-500/30 bg-black/20">
+                                <div className="w-full" style={{ minHeight: '600px', height: '80vh', maxHeight: '800px' }}>
+                                  <iframe
+                                    src="https://drive.google.com/file/d/1_j_fVURjnXfof8jrbbI6zHvDo0fbcrAL/preview"
+                                    className="w-full h-full"
+                                    title="Vista previa - Análisis de Usuarios"
+                                    allow="autoplay"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Videos */}
+                            <div className="space-y-3 mt-6">
+                              <h5 className="text-base font-semibold text-blue-300 flex items-center gap-2">
+                                <Video className="h-4 w-4" />
+                                Videos de Entrevistas
+                              </h5>
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                {[
+                                  { id: "1RobJ0KoQKnsb_l1vbemT1vd3Uungiopi", name: "Video 1", url: "https://drive.google.com/file/d/1RobJ0KoQKnsb_l1vbemT1vd3Uungiopi/view?usp=sharing" },
+                                  { id: "1-zLGZoipO8p-365nmh8hPUbj0PgYm-90", name: "Video 2", url: "https://drive.google.com/file/d/1-zLGZoipO8p-365nmh8hPUbj0PgYm-90/view?usp=drive_link" },
+                                  { id: "1odHWW3TZBhJiy3zYrG3yIKibXDEZ-FNe", name: "Video 3", url: "https://drive.google.com/file/d/1odHWW3TZBhJiy3zYrG3yIKibXDEZ-FNe/view?usp=drive_link" },
+                                  { id: "1PwfcYqXEy_upm37tq9HEKxk3EHKHRBAW", name: "Video 4", url: "https://drive.google.com/file/d/1PwfcYqXEy_upm37tq9HEKxk3EHKHRBAW/view?usp=drive_link" },
+                                  { id: "107cYaCpykLWbgR8nxYS1_JDxa1CiEii7", name: "Entrevista Jean Pierre", url: "https://drive.google.com/file/d/107cYaCpykLWbgR8nxYS1_JDxa1CiEii7/view?usp=drive_link" },
+                                  { id: "1kH25QS6xm0UGbUZHJ_ijOflpnWLxyt9O", name: "Entrevista Karla", url: "https://drive.google.com/file/d/1kH25QS6xm0UGbUZHJ_ijOflpnWLxyt9O/view?usp=drive_link" },
+                                  { id: "1qOj-B_UOcS7QsFImlTYbNuJYRQ79ngQ0", name: "Entrevista Quicaño", url: "https://drive.google.com/file/d/1qOj-B_UOcS7QsFImlTYbNuJYRQ79ngQ0/view?usp=drive_link" },
+                                  { id: "1ogT4nm6lGyXfBZ07gN77OZhC6_0iLMCt", name: "Entrevista Roy", url: "https://drive.google.com/file/d/1ogT4nm6lGyXfBZ07gN77OZhC6_0iLMCt/view?usp=drive_link" },
+                                ].map((video, idx) => (
+                                  <a
+                                    key={idx}
+                                    href={video.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="group relative overflow-hidden rounded-lg border-2 border-blue-500/30 hover:border-blue-500/60 transition-all block"
+                                  >
+                                    <div className="aspect-video bg-black/40 relative w-full" style={{ minHeight: '300px' }}>
+                                      <iframe
+                                        src={`https://drive.google.com/file/d/${video.id}/preview`}
+                                        className="w-full h-full absolute inset-0"
+                                        title={video.name}
+                                        allow="autoplay"
+                                      />
+                                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                                        <div className="p-3 rounded-full bg-black/70 backdrop-blur-sm">
+                                          <Play className="h-8 w-8 text-white" />
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/90 to-transparent pointer-events-none">
+                                      <p className="text-white text-sm font-medium">{video.name}</p>
+                                      <div className="flex items-center gap-1 text-blue-300 text-xs mt-1">
+                                        <ExternalLink className="h-3 w-3" />
+                                        <span>Ver en Google Drive</span>
+                                      </div>
+                                    </div>
+                                  </a>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                        </AccordionItem>
+                      </Accordion>
                     </div>
                   )}
 
