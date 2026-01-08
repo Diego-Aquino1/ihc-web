@@ -468,30 +468,56 @@ export function ProjectDetail() {
 
               {activeTab === "multimedia" && (
               <div>
-                {assets.images.length > 0 ? (
-                  <div ref={imagesRef} className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {assets.images.map((img, idx) => (
-                      <div
-                        key={idx}
-                        onClick={() => setSelectedImageIndex(idx)}
-                        className="project-image relative group overflow-hidden rounded-xl border-2 border-cyan-500/30 cursor-pointer"
-                      >
-                        <img
-                          src={img}
-                          alt={`${project.title} - Imagen ${idx + 1}`}
-                          className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <div className="p-3 rounded-full bg-black/50 backdrop-blur-sm">
-                            <Maximize2 className="h-6 w-6 text-white" />
+                {((assets.images.length > 0) || (id === "interview-sim" && assets.interviewImages && assets.interviewImages.length > 0)) ? (
+                  <div>
+                    {id === "interview-sim" && (
+                      <div className="mb-6 flex gap-4">
+                        <a
+                          href="https://drive.google.com/drive/folders/16q2nzuwWgoP_SfQLPzQwy0WmeSRuVi-C?usp=drive_link"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-lg text-blue-300 hover:bg-blue-500/20 hover:text-blue-200 transition-colors"
+                        >
+                          <FileText className="h-4 w-4" />
+                          Ver 
+                          <ExternalLink className="h-4 w-4" />
+                        </a>
+                        <a
+                          href="https://drive.google.com/file/d/1mA32fp-nalY-7QkLdN8g51g2kFA-eibi/view?usp=sharing"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-lg text-blue-300 hover:bg-blue-500/20 hover:text-blue-200 transition-colors"
+                        >
+                          <Video className="h-4 w-4" />
+                          Ver Video
+                          <ExternalLink className="h-4 w-4" />
+                        </a>
+                      </div>
+                    )}
+                    <div ref={imagesRef} className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      {(id === "interview-sim" ? assets.interviewImages! : assets.images).map((img, idx) => (
+                        <div
+                          key={idx}
+                          onClick={() => setSelectedImageIndex(idx)}
+                          className="project-image relative group overflow-hidden rounded-xl border-2 border-cyan-500/30 cursor-pointer"
+                        >
+                          <img
+                            src={img}
+                            alt={`${project.title} - Imagen ${idx + 1}`}
+                            className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div className="p-3 rounded-full bg-black/50 backdrop-blur-sm">
+                              <Maximize2 className="h-6 w-6 text-white" />
+                            </div>
+                          </div>
+                          <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <p className="text-white font-semibold">Vista {idx + 1}</p>
                           </div>
                         </div>
-                        <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <p className="text-white font-semibold">Vista {idx + 1}</p>
-                        </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
                 ) : (
                   <div className="text-center py-12 text-blue-300">
@@ -1193,11 +1219,18 @@ export function ProjectDetail() {
         </DialogHeader>
         <DialogContent>
           <div className="aspect-video bg-black/20 rounded-lg flex items-center justify-center">
-            <p className="text-blue-300">
-              {id === "vr-escape-room"
-                ? "Video demo de SpaceRoom - Próximamente"
-                : "Video demo de InterView - Próximamente"}
-            </p>
+            {id === "vr-escape-room" ? (
+              <p className="text-blue-300">
+                Video demo de SpaceRoom - Próximamente
+              </p>
+            ) : (
+              <iframe
+                src="https://drive.google.com/file/d/1mA32fp-nalY-7QkLdN8g51g2kFA-eibi/preview"
+                className="w-full h-full rounded-lg"
+                title="Demo de InterView"
+                allow="autoplay"
+              />
+            )}
             {/* Aquí puedes insertar un iframe de YouTube/Vimeo cuando tengas el video */}
           </div>
         </DialogContent>
